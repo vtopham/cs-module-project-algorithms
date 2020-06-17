@@ -2,50 +2,20 @@
 Input: an integer
 Returns: an integer
 '''
-def eating_cookies(n):
+def eating_cookies(n, tracking = 0):
     print(f"n is {n}")
-    #returns combinations
-    def find_combination(n, combo = [], ways = []):
-        #need a nullifying statement here
-        if n < 2:
-            ways.append(n)
-        else:
+    if n < 2:
+        return 1
+
+    num1 = 0
+
+    for i in range(1, 4):
+        if tracking + i == n:
             
-            for i in range (1, n + 1):
-                print(f"i is {i}, range is 1 to {n + 1}")
-                print(f"The combo at the beginning is {combo}")
-                
-                #if we're returning, set combo back to be able to include the new value
-                # while sum(combo) > n - i:
-                #     combo.pop(-1)
-
-                if i + sum(combo) == n:
-                    #if our branch has resulted in a sum of n, return the combo
-                    combo.append(i)
-                    print(f"!!!!!!! combo is {combo}")
-                    ways.append(combo)
-                    #pop off the right answer
-                    
-                    #TODO: only set combo back the appropriate amount
-                   
-                    
-                    # next
-                elif i + sum(combo) < n:
-                    #if we still haven't hit the number, run again
-                    combo.append(i)
-                    # print(f"combo is now {combo}")
-                    
-                    find_combination(n, combo, ways)
-                
-                
-                
-        # print(f"Ways is {len(ways)}")
-        return ways
-    
-    answer = find_combination(n)
-        
-
-    return len(answer)
+            return num1 + 1
+        elif tracking + i < n:
+            num1 = eating_cookies(n, tracking + i)
+    return num1
 
 if __name__ == "__main__":
     # Use the main function here to test out your implementation
