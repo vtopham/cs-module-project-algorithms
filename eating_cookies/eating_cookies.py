@@ -11,12 +11,13 @@ def eating_cookies(n):
             ways.append(n)
         else:
             
-            for i in range (1, n - sum(combo) + 1):
-                print(f"i is {i}")
+            for i in range (1, n + 1):
+                print(f"i is {i}, range is 1 to {n + 1}")
+                print(f"The combo at the beginning is {combo}")
                 
                 #if we're returning, set combo back to be able to include the new value
-                while sum(combo) > n - i:
-                    combo.pop(-1)
+                # while sum(combo) > n - i:
+                #     combo.pop(-1)
 
                 if i + sum(combo) == n:
                     #if our branch has resulted in a sum of n, return the combo
@@ -24,9 +25,10 @@ def eating_cookies(n):
                     print(f"!!!!!!! combo is {combo}")
                     ways.append(combo)
                     #pop off the right answer
-                    # combo.pop(-1)
+                    
                     #TODO: only set combo back the appropriate amount
-                    # combo.pop(-1)
+                   
+                    
                     # next
                 elif i + sum(combo) < n:
                     #if we still haven't hit the number, run again
@@ -36,7 +38,8 @@ def eating_cookies(n):
                     find_combination(n, combo, ways)
                 
                 
-
+                
+        # print(f"Ways is {len(ways)}")
         return ways
     
     answer = find_combination(n)
