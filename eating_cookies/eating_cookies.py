@@ -3,9 +3,46 @@ Input: an integer
 Returns: an integer
 '''
 def eating_cookies(n):
-    # Your code here
+    print(f"n is {n}")
+    #returns combinations
+    def find_combination(n, combo = [], ways = []):
+        #need a nullifying statement here
+        if n < 2:
+            ways.append(n)
+        else:
+            
+            for i in range (1, n - sum(combo) + 1):
+                print(f"i is {i}")
+                
+                #if we're returning, set combo back to be able to include the new value
+                while sum(combo) > n - i:
+                    combo.pop(-1)
 
-    pass
+                if i + sum(combo) == n:
+                    #if our branch has resulted in a sum of n, return the combo
+                    combo.append(i)
+                    print(f"!!!!!!! combo is {combo}")
+                    ways.append(combo)
+                    #pop off the right answer
+                    # combo.pop(-1)
+                    #TODO: only set combo back the appropriate amount
+                    # combo.pop(-1)
+                    # next
+                elif i + sum(combo) < n:
+                    #if we still haven't hit the number, run again
+                    combo.append(i)
+                    # print(f"combo is now {combo}")
+                    
+                    find_combination(n, combo, ways)
+                
+                
+
+        return ways
+    
+    answer = find_combination(n)
+        
+
+    return len(answer)
 
 if __name__ == "__main__":
     # Use the main function here to test out your implementation
