@@ -4,7 +4,7 @@ Returns: an integer
 '''
 def single_number(arr):
     
-    # Your code here
+    # Working code#########
     single = []
    
     for x in arr:
@@ -24,6 +24,35 @@ def single_number(arr):
             single.pop(in_single_index)
     
     return single[0]
+
+
+    ######OLD CODE########
+    # if len(arr) == 1:
+    #     return arr[0]
+
+    # for i in range(0,len(arr)):
+    #     for j in range(i+1,len(arr)):
+    #         if arr[i] == arr[j]:
+    #             item = arr[i]
+    #             arr.remove(item)
+    #             arr.remove(item)
+    #             return single_number(arr)
+    
+    ##########WORKS FOR 100#######
+
+
+    # if len(arr) == 1:
+    #     return arr[0]
+    
+    # for i in range(0,len(arr)):
+    #     for j in range(i+1,len(arr)):
+    #         if arr[i] == arr[j]:
+    #             item = arr[i]
+    #             arr.remove(item)
+    #             arr.remove(item)
+    #             return single_number(arr)
+    
+    
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
